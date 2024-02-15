@@ -1,0 +1,322 @@
+body {
+  background: #e52d27; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #b31217,
+    #e52d27
+  ); 
+  background: linear-gradient(
+    to right,
+    #b31217,
+    #e52d27
+  );
+  overflow: hidden;
+  user-select: none;
+}
+
+.canva {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.console {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.left_joystick {
+  position: relative;
+  width: 100px;
+  height: 250px;
+  border-radius: 43% 0% 0% 43% / 10% 10% 10% 10%;
+  background-color: #1bcef1;
+  border-top: 6px solid #272727;
+  border-left: 4px solid #1c98b1;
+  border-bottom: 2px solid #1c98b1;
+}
+
+.screen {
+  position: relative;
+  width: 400px;
+  height: 250px;
+  background-color: #333333;
+}
+
+.right_joystick {
+  position: relative;
+  width: 100px;
+  height: 250px;
+  background-color: #dc2e2e;
+  border-radius: 0% 43% 43% 0% / 10% 10% 10% 10%;
+  border-top: 6px solid #272727;
+  border-bottom: 3px solid #981f1f;
+}
+
+.left_joystick + .screen {
+  margin-left: none; 
+}
+
+.joystick ~ .button {
+  box-shadow: none; 
+}
+
+.minus {
+  position: relative;
+  font-size: 100px;
+  color: #333333;
+  bottom: 150px;
+  left: 60px;
+}
+
+.joystick {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-color: #333333;
+  border: #272727 2px solid;
+  border-radius: 50%;
+  left: 35px;
+  bottom: 260px;
+  box-shadow: 0px 10px rgb(38, 154, 196);
+}
+
+.cross {
+  display: grid;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  place-items: center;
+  grid-template-areas:
+    ". up ."
+    "left center right"
+    ". down .";
+  bottom: 210px;
+  left: 20px;
+}
+
+.up {
+  grid-area: up;
+}
+
+.down {
+  grid-area: down;
+}
+
+.left {
+  grid-area: left;
+}
+
+.right {
+  grid-area: right;
+}
+
+.center {
+  grid-area: center;
+}
+
+.cross > div {
+  width: 22px;
+  height: 22px;
+  background: #333333;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cross > div:active {
+  width: 18px;
+  height: 18px;
+  background-color: #222222;
+}
+
+.cross > div::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.up::after {
+  border-width: 0 5px 8.7px 5px;
+  border-color: transparent transparent #212121 transparent;
+  margin-bottom: 4px;
+}
+
+.down::after {
+  border-width: 8.7px 5px 0 5px;
+  border-color: #212121 transparent transparent transparent;
+  margin-top: 4px;
+}
+
+.left::after {
+  border-width: 5px 8.7px 5px 0;
+  border-color: transparent #212121 transparent transparent;
+  margin-right: 4px;
+}
+
+.right::after {
+  border-width: 5px 0 5px 8.7px;
+  border-color: transparent transparent transparent #212121;
+  margin-left: 4px;
+}
+
+.screen {
+  position: relative;
+  width: 400px;
+  height: 250px;
+  background-color: #434343;
+}
+
+.screen::before {
+  content: "";
+  position: fixed;
+  width: 380px;
+  height: 230px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #333333;
+  border: 2px solid #232323;
+}
+
+.screen::after {
+  content: "";
+  position: fixed;
+  width: 340px;
+  height: 190px;
+  margin-top: 30px;
+  margin-left: 30px;
+  background-color: #121111;
+  border: 2px solid #3d3d3d;
+  transition: background-color 0.5s ease;
+}
+
+.screen:hover::after {
+  animation: colorChange 3s infinite;
+}
+
+@keyframes colorChange {
+  0% {
+    background-color: #121111;
+  }
+  25% {
+    background-color: #3498db;
+  }
+  50% {
+    background-color: #2ecc71;
+  }
+  75% {
+    background-color: #f1c40f;
+  }
+  100% {
+    background-color: #e74c3c;
+  }
+}
+
+.plus {
+  position: relative;
+  font-size: 50px;
+  color: #333333;
+  font-weight: bolder;
+  bottom: 55px;
+  left: 10px;
+}
+
+.buttons_area {
+  display: grid;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    ". Y ."
+    "X . B"
+    ". A .";
+  gap: 1px;
+  justify-content: center;
+  align-content: center;
+  bottom: 85px;
+  left: 25px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background-color: #333333;
+  color: rgb(177, 177, 177);
+  border-radius: 50%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.button:active {
+  width: 18px;
+  height: 18px;
+  background-color: #222222;
+}
+
+#X {
+  grid-area: X;
+}
+
+#Y {
+  grid-area: Y;
+}
+
+#A {
+  grid-area: A;
+}
+
+#B {
+  grid-area: B;
+}
+
+.joystick_right {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-color: #333333;
+  border: #272727 2px solid;
+  border-radius: 50%;
+  bottom: 40px;
+  left: 30px;
+  box-shadow: 0px 10px rgb(169, 26, 26);
+}
+
+.image_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image_logo img {
+    height: 50px;
+    width: auto;
+}
+
+.power{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: #333333;
+    border: #272727 2px solid;
+    bottom: 300px
+}
+
+
+.button:first-child,
+.button:last-child {
+  box-shadow: none; /* Cumple con el requisito sin cambiar el diseño */
+}
+
+/* Aplicando :nth-child en .button */
+.button:nth-child(2) {
+  background-color: #333333; /* Mantiene el diseño */
+}
